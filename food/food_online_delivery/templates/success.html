@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thank you for choosing us !!!!!!</title>
+</head>
+<body style="background-image:url({% static 'img/chefs-bg.jpg' %});">
+<div class="container">
+    <div class="row">
+        <h1 style="text-align:center;padding-top:22%;">Thank for choosing us !!!!</h1>
+        <h2 style="text-align:center;">Your order request was sent. We will call back or send an Email to confirm your Order.</h2>
+            <span style="float:left;padding-left:22%;">
+                <a href="/authentication/ordernow"><button style="border-radius: 8px;background-color:#FFB03B;color:white;">Make another order</button></a>
+            </span>
+            <span style="padding-left:20%;">
+                <a href="/"><button style="border-radius: 8px;background-color:#FFB03B;color:white;">Back to home</button></a>
+            </span>
+            <span  style="padding-left:20%;">
+                <a href="/authentication/logout"><button style="border-radius: 8px;background-color:#FFB03B;color:white;">Logout</button></a>
+            </span>
+    </div>
+
+</div>
+</body>
+</html>

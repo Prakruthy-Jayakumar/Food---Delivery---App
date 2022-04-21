@@ -1,0 +1,325 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Happy Tummy - Online Food Delivery</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <link href="{% static 'img/favicon.png' %}" rel="icon">
+  <link href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,600,600i,700,700i|Satisfy|Comic+Neue:300,300i,400,400i,700,700i" rel="stylesheet">
+  <link href="{% static 'vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+  <!-- ======= Top Bar ======= -->
+  <section id="topbar" class="d-flex align-items-center fixed-top topbar-transparent">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-center justify-content-lg-start">
+      <i class="bi bi-phone d-flex align-items-center"><span>+1 5589 55488 55</span></i>
+      <i class="bi bi-clock ms-4 d-none d-lg-flex align-items-center"><span>Mon-Sat: 11:00 AM - 23:00 PM</span></i>
+    </div>
+  </section>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center header-transparent">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+      <div class="logo me-auto">
+        <h1><a href="index.html">Happy Tummy</a></h1>
+      </div>
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto active" href="">Home</a></li>
+          <li><a class="nav-link scrollto" href="#about">About</a></li>
+          <li><a class="nav-link scrollto" href="#specials">Specials</a></li>
+          <li><a class="nav-link scrollto" href="#gallery">Gallery</a></li>
+           <li><a class="nav-link scrollto" href="#chefs">Chefs</a></li>
+          <li class="dropdown"><a href="#"><span>Branches</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="https://en.wikipedia.org/wiki/Thiruvananthapuram">Trivandrum</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Kollam">Kollam</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Alappuzha">Alappuzha</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Ernakulam">Ernakulam</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Kozhikode">Kozhikode</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Kottayam">Kottayam</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Thrissur">Thrissur</a></li>
+            </ul>
+          </li>
+          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          {% if user.is_authenticated %}
+           <li>
+             <i>
+               <a style="color:#FBBC31;" href="/authentication/ordernow" >Hello {{user.username}},</a>
+             </i>
+            </li>
+            <li><a href="/authentication/logout">Logout</a></li>
+            {% else %}
+          <li><a href="/authentication/login">Login</a></li>
+            {% endif %}
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+      <!-- .navbar -->
+    </div>
+  </header>
+  <!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container">
+      <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+        <div class="carousel-inner" role="listbox">
+          <div class="carousel-item active" style="background-image: url({% static 'img/slide/slide-1.jpg' %});">
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2 class="animate__animated animate__fadeInDown"><span>Happy Tummy</span> Online Food Delivery</h2>
+                <h3 style="color:white;" class="animate__animated animate__fadeInUp">Hungry ?! <br> Good, we are here to serve you....</h3> <br>
+                <div>
+                  <a href="#specials" class="btn-menu animate__animated animate__fadeInUp scrollto">Today's Specials</a>
+                  {% if user.is_authenticated %}
+                    <a href="/authentication/ordernow" class="btn-book animate__animated animate__fadeInUp scrollto">Order Now</a>
+                  {% else %}
+                    <a href="/authentication/login" class="btn-book animate__animated animate__fadeInUp scrollto">Order Now</a>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Hero -->
+
+  <main id="main">
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-5 align-items-stretch video-box" style="background-image: url({% static 'img/about.jpg' %});">
+            <a href="https://youtu.be/5i8QdzmfD9E" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>
+          </div>
+          <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch">
+            <div class="content">
+              <h3>Online Food Delivery: <strong> Consumer Trends </strong></h3>
+              <p>Consumers who use online food delivery can indulge in the variety of restaurants and cuisines available on the internet, without the need to visit the stores or restaurants.</p>
+              <p class="fst-italic">
+               Restaurants can offer a sense of luxury by offering food in premium packaging, thus transporting consumers to faraway places, and offering them a high-quality in-house experience, without having to go to the restaurant. This trend is especially relevant during the worldwide pandemic, when consumers are looking to escape the weariness and are looking for a glimmer of normalcy.
+              </p>
+              <ul>
+                <li><i class="bx bx-check-double"></i>Convenience</li>
+                <li><i class="bx bx-check-double"></i>Social media</li>
+                <li><i class="bx bx-check-double"></i>Direct-to-consumer and ecommerce</li>
+              </ul>
+              <p>
+                On-the-go lifestyles are driving convenience, particularly for young urban consumers. As these demographics are growing globally, food delivery providers are ideally positioned to meet this demand. Also, worldwide, the number of people living alone has increased dramatically in recent years. For example, in the US, the number of adults living alone almost doubled in the last 50 years. The trend is more prevalent in richer countries, where people can afford to order food online more. Many single consumers choose to order food in, rather than go out
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- End About Section -->
+
+    <!-- ======= Whu Us Section ======= -->
+    <section id="why-us" class="why-us">
+      <div class="container">
+        <div class="section-title">
+          <h2>Why choose <span>Happy Tummy</span></h2>
+          <p> Let us explore the exact reasons why people are thrilled at the idea of Happy Tummy Online Food Delivery.</p>
+        </div>
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="box">
+              <span>01</span>
+              <h4>To Enjoy & Appreciate Fine Cuisine</h4>
+              <p>The most common reason why people love to order food online even though it involves spending money is food. It could be the greatest motivator. People love having the delectable dishes conjured up by highly talented and creative chefs.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 mt-4 mt-lg-0">
+            <div class="box">
+              <span>02</span>
+              <h4>For Celebrating a Life Event</h4>
+              <p>Homs are the most favourite destination to head for when people wish to celebrate a special event such as birthdays, promotions, anniversaries etc. We could enjoy a wonderful meal amidst friends, family, and great ambiance.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 mt-4 mt-lg-0">
+            <div class="box">
+              <span>03</span>
+              <h4> To Avoid Cooking</h4>
+              <p>Many people wish to escape the ordeal of cooking food at home and entertaining people. Moreover, going to a online delivery could mean a respite from cooking that meal. People often include a restaurant trip when they are planning shopping, or movie or an excursion. This is simply because they do not wish to worry about coming back early to cook.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section><
+
+    <!-- ======= Specials Section ======= -->
+    <section id="specials" class="specials">
+      <div class="container">
+        <div class="section-title">
+          <h2>Check our <span>Today's Specials</span></h2>
+        </div>
+          <div class="container">
+            <div class="row">
+              {% for i in result_special %}
+                  <div class="card" style="width:20rem;margin-bottom: 10px;margin-left: 10px;">
+                      <img class="card-img-top" src="{{i.img.url}}" alt="Card image cap" width="100px" height="300px" style="padding-top:10px;">
+                      <div class="card-body">
+                          <h5 class="card-title">{{i.special_name}}
+                            {% if user.is_authenticated %}
+                               <a style="float:right;" href="/authentication/ordernow" class="btn-book animate__animated animate__fadeInUp scrollto">Order Now</a>
+                            {% else %}
+                              <a style="float:right;" href="/authentication/login" class="btn-book animate__animated animate__fadeInUp scrollto">Order Now</a>
+                            {% endif %}
+                          </h5>
+                      </div>
+                  </div>
+                  {% endfor %}
+          </div><br><br>
+        </div>
+
+      </div>
+    </section>
+    <!-- End Specials Section -->
+
+    <!-- ======= Gallery Section ======= -->
+    <section id="gallery" class="gallery">
+      <div class="container-fluid">
+        <div class="section-title">
+          <h2>Some photos from <span>Our Restaurant</span></h2>
+          <p>Check and select your favourites !!!</p>
+        </div>
+        <div class="row">
+              {% for i in result_2 %}
+                  <div class="card" style="width:20rem;margin-bottom: 10px;margin-left: 10px;">
+                      <img class="card-img-top" src="{{i.img.url}}" alt="Card image cap" width="100px" height="300px" style="padding-top:10px;">
+                  </div>
+                  {% endfor %}
+          </div>
+      </div>
+    </section>
+    <!-- End Gallery Section -->
+
+    <!-- ======= Chefs Section ======= -->
+    <section id="chefs" class="chefs">
+      <div class="container">
+        <div class="section-title">
+          <h2>Our Proffesional <span>Chefs</span></h2>
+          <p>Meet our Magicians</p>
+        </div>
+        <div class="row">
+          {% for y in result %}
+          <div class="col-lg-4 col-md-6">
+              <div class="member">
+                <div class="pic"><img src="{{y.img.url}}" class="img-fluid" alt="" width="500px" height="100px"></div>
+                <div class="member-info">
+                  <h4>{{y.chef_name}}</h4>
+                  <span>{{y.chef_designation}}}</span>
+                </div>
+              </div>
+
+          </div>
+           {% endfor %}
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Chefs Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-title">
+          <h2><span>Contact Us</span> Us</h2>
+          <p>Feel free to contact us..</p>
+        </div>
+      </div>
+
+      <div class="container mt-5">
+
+        <div class="info-wrap">
+          <div class="row">
+            <div class="col-lg-3 col-md-6 info">
+              <i class="bi bi-geo-alt"></i>
+              <h4>Location:</h4>
+              <p>A108 Adam Street<br>New York, NY 535022</p>
+            </div>
+
+            <div class="col-lg-3 col-md-6 info mt-4 mt-lg-0">
+              <i class="bi bi-clock"></i>
+              <h4>Open Hours:</h4>
+              <p>Monday-Saturday:<br>11:00 AM - 2300 PM</p>
+            </div>
+
+            <div class="col-lg-3 col-md-6 info mt-4 mt-lg-0">
+              <i class="bi bi-envelope"></i>
+              <h4>Email:</h4>
+              <p>info@example.com<br>contact@example.com</p>
+            </div>
+
+            <div class="col-lg-3 col-md-6 info mt-4 mt-lg-0">
+              <i class="bi bi-phone"></i>
+              <h4>Call:</h4>
+              <p>+1 5589 55488 51<br>+1 5589 22475 14</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <h3>Happy Tummy - Online Food Delivery</h3>
+      <p>Order online and enjoy at food with Happy Tummy</p>
+      <div class="social-links">
+        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+      <div class="copyright">
+        &copy; Copyright <strong><span>Happy Tummy</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/delicious-free-restaurant-bootstrap-theme/ -->
+        Designed by <a href="https://bootstrapmade.com/">Prakruthy</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>
